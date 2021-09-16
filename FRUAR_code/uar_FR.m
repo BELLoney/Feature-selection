@@ -9,7 +9,7 @@ function select_feature=uar_FR(data,lammda)
 %%%input:
 % Data is data matrix, where rows for samples and columns for attributes without decision. 
 % Numerical attributes should be normalized into [0,1]
-% Fuzzy radius delta=std£¨Data£©/lammda, lammda usually takes value in [0.1,1] with 0.1
+% Fuzzy radius delta=stdÂ£Â¨DataÂ£Â©/lammda, lammda usually takes value in [0.1,1] with 0.1
 %%%output:
 % a reduct--- the set of selected attributes.
 [row, attrinu]=size(data);
@@ -79,5 +79,3 @@ else
    select_feature=red;
 end
 end
-
-
