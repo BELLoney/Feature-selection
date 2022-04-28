@@ -56,7 +56,7 @@ for j=attrinu:-1:1
     len=length(x);
     if abs(x(len)-x(len-1))>var
         base1=eval(['ssr' num2str(B(n1))]);
-        base=base.*base1;%algebraic product.´úÊý»ý
+        base=base.*base1;%algebraic product.
         red=[red B(n1)];
         B=setdiff(B,B(n1));
     else
