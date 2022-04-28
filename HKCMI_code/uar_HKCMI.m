@@ -15,7 +15,7 @@ function select_feature=uar_HKCMI(data,var,delta_val)
 % a feature sequence for feture significance
 [row, attrinu]=size(data);
 
-delta=zeros(1,attrinu);%Initialize the radius  
+delta=zeros(1,attrinu);%Initialize the radius 
 for j=1:attrinu
     if min(data(:,j))==0&&max(data(:,j))==1 %Find the radius of the numeric feature
      delta(j)=delta_val;
@@ -26,9 +26,9 @@ end
      col=i;
      r=[];
      eval(['ssr' num2str(col) '=[];']);
-      for j=1:row      
+      for j=1:row  
           a=data(j,col);
-          x=data(:,col);       
+          x=data(:,col);     
           for m=1:j
               r(j,m)=hkuar_kersim(a,x(m),delta(i));
               r(m,j)=r(j,m);
@@ -48,12 +48,7 @@ for j=attrinu:-1:1
        r1=eval(['ssr' num2str(B(i))]);
        for k=1:attrinu
         ck=eval(['ssr' num2str(k)]);
-        entropyck=fuzzycentropy(ck);
-           if B(i)~=k
-           sig(i,k)=entropyck+fuzzycentropy(r1.*base)-fuzzycentropy(r1.*(ck.*base));
-           else
-            sig(i,k)=entropyck;
-           end
+        sig(i,k)=fuzzycentropy(ck)+fuzzycentropy(r1.*base)-fuzzycentropy(r1.*(ck.*base));
        end
     end
     [x1,n1]=max(mean(sig,2));
@@ -61,7 +56,7 @@ for j=attrinu:-1:1
     len=length(x);
     if abs(x(len)-x(len-1))>var
         base1=eval(['ssr' num2str(B(n1))]);
-        base=base.*base1;%algebraic product.´úÊı»ı
+        base=base.*base1;%algebraic product.Â´ÃºÃŠÃ½Â»Ã½
         red=[red B(n1)];
         B=setdiff(B,B(n1));
     else
